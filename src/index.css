@@ -98,3 +98,8 @@ li {
   width: 150px;
   border-radius: 50%;
 }
+
+.comment {
+  border-radius: 10px;
+  background-color: gray;
+}

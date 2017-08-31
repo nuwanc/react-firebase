@@ -6,7 +6,7 @@ class CommentsForm extends Component {
         super(props);
         this.state = {
             name : '',
-            rating : '0',
+            rating : '1',
             comment : ''
         }
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -35,16 +35,17 @@ class CommentsForm extends Component {
         this.setState(()=>{
             return {
                 name : '',
-                rating : '0',
+                rating : '1',
                 comment : ''
             }
         })
+        this.props.onSubmit();
       }
     
 
     render() {
         return (
-            <form className='column' onSubmit={this.handleSubmit}>
+            <form className='column' onSubmit={this.handleSubmit} style={this.props.hidden ? { display:'none'} : null}>
                 <label htmlFor='name'>Name</label>
                 <input id='name' placeholder='Name' type='text' autoComplete='off' name="name" value={this.state.name} onChange={this.handleInputChange}/>
                 <label htmlFor='rating'>Rating</label>
@@ -57,7 +58,7 @@ class CommentsForm extends Component {
                 </span>
                 <label htmlFor='comment'>Comment</label>
                 <textarea id='comment' placeholder='comment' autoComplete='off' name='comment' value={this.state.comment} onChange={this.handleInputChange}/>
-                <button className='button' type='submit'>Submit</button>
+                <button className='button' type='submit' disabled={!this.state.name}>Submit</button>
             </form>
         )
     }

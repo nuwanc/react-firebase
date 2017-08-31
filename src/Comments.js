@@ -23,7 +23,7 @@ function CommentsGrid(props) {
                     <ul className='space-list-item'>
                         <li><img className='avatar' src={'https://api.adorable.io/avatars/150/'+comment.name} alt={'Avatar for '+comment.name} /></li>
                         <li>@{comment.name}</li>
-                        <li>{comment.comment}</li>
+                        <div className="comment">{comment.comment}</div>
                     </ul>
                 </li>
             )
